@@ -1,6 +1,7 @@
 const express = require('express');
 const morgan = require('morgan');
 const session = require('express-session');
+const controller = require('./controller');
 
 const { errorHandler } = require('./lib/error-handler');
 
@@ -23,5 +24,7 @@ app.use(session({
 }));
 
 app.use(errorHandler);
+
+app.use('/', controller);
 
 module.exports = app;
